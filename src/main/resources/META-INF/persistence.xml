@@ -4,23 +4,23 @@
              version="2.1">
 
     <persistence-unit name="hillel-persistence-unit" transaction-type="RESOURCE_LOCAL">
+
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <!-- Додати класи Student та Homework-->
 
+        <class>org.example.Student</class>
+        <class>org.example.Homework</class>
 
-        <!-- Налаштувати підключення до бази даних PostgreSQL:
-           вказати властивості driver, url, user, password -->
         <properties>
-            <property name="jakarta.persistence.jdbc.driver" value=""/>
-            <property name="jakarta.persistence.jdbc.url" value=""/>
-            <property name="jakarta.persistence.jdbc.user" value=""/>
-            <property name="jakarta.persistence.jdbc.password" value=""/>
 
+        <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/database_hw30?serverTimezone=UTC"/>
+        <property name="jakarta.persistence.jdbc.user" value="root"/>
+        <property name="jakarta.persistence.jdbc.password" value="saraNOvi4"/>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.hbm2ddl.auto" value="update"/>
 
-            <!-- Вказати dialect для PostgreSQL -->
-            <property name="hibernate.dialect" value=""/>
-            <property name="hibernate.show_sql" value=""/>
-            <property name="hibernate.hbm2ddl.auto" value=""/>
         </properties>
+
     </persistence-unit>
 </persistence>
